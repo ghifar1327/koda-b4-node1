@@ -1,19 +1,16 @@
-// import { generateMusic } from './generateMusic.js';
-const namaMusik = require('./generateMusic');
+const inputManual = require('./lib/converter');
+const input = require('./lib/generatorDate');
 
-const moveByArtist = require('./moveByArtist');
+const readline = require("readline");
 
-const music = [
-    'Bring me The Horizon - Drown',
-    'Bring me The Horizon - Happy song',
-    'Bring me The Horizon - The house of wolves',
-    'Sleep Token - Gethsemane',
-    'Sleep Token - The Summoning',
-    'Sleep Token - Alkaline',
-    'Lamb of God - walk with me in hell',
-    'Lamb of God - redneck',
-    'Dead Squad - The black triengle',
-    'I Prevail - Bow Down'
-];
-moveByArtist(music)
-// namaMusik(music);
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+
+rl.question("Masukkan tanggal (format: DD-MM-YYYY): ", (inputUser) => {
+  // inputManual.converterManual(inputUser)
+  input.generateDate(inputUser);
+  rl.close();
+});
